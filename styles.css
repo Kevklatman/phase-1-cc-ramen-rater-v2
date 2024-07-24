@@ -100,3 +100,17 @@ form h4 {
   color: white;
   background-color: black;
 }
+
+.ramen-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#ramen-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
