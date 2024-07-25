@@ -3,14 +3,18 @@ const fetchRamenData = async () => {
   return response.json();
 };
 const handleClick = (ramen) => {
-  const detailDiv = document.getElementById('ramen-detail');
-  detailDiv.innerHTML = `
-    <h2>${ramen.name}</h2>
-    <img src="${ramen.image}" alt="${ramen.name}">
-    <p>Restaurant: ${ramen.restaurant}</p>
-    <p>Comment: ${ramen.comment || 'insert comment here'}</p>
-    <p>Rating: ${ramen.rating || 'insert rating here'}</p>
-  `;
+  const detailImage = document.querySelector('#ramen-detail .detail-image');
+  const nameElement = document.querySelector('#ramen-detail .name');
+  const restaurantElement = document.querySelector('#ramen-detail .restaurant');
+  const ratingDisplay = document.getElementById('rating-display');
+  const commentDisplay = document.getElementById('comment-display');
+
+  detailImage.src = ramen.image;
+  detailImage.alt = ramen.name;
+  nameElement.textContent = ramen.name;
+  restaurantElement.textContent = ramen.restaurant;
+  ratingDisplay.textContent = ramen.rating || '';
+  commentDisplay.textContent = ramen.comment || '';
 };
 const displayRamens = async () => {
   const ramenData = await fetchRamenData();
